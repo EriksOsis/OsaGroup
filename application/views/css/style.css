@@ -1,0 +1,75 @@
+.container {
+	display: flex;
+	justify-content: center;
+}
+
+h1 {
+	text-align: center;
+}
+
+.calc-div, .curr-list {
+	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+	padding: 20px;
+	background-color: #debe00;
+	width: 500px;
+	min-width: 300px;
+	font-family: sans-serif;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	align-items: center;
+	margin: 10px;
+}
+
+.calc-input, .list-input {
+	width: 100%;
+	height: 30px;
+	border: none;
+	box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+	border-radius: 4px;
+	padding: 0 5px;
+	margin-bottom: 10px;
+}
+
+:focus {
+	outline: none;
+}
+
+.calc-btn, .list-btn {
+	border: none;
+	padding: 5px 15px;
+	background-color: #5a87ea;
+	border-radius: 4px;
+	color: white;
+	cursor: pointer;
+	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.calc-btn:hover {
+	background-color: #4f78d2;
+}
+
+.list-btn:hover {
+	background-color: #4f78d2;
+}
+
+.calc-btn:active {
+	background-color: #496dbd;
+}
+
+.list-btn:active {
+	background-color: #496dbd;
+}
+
+.calc-result, .date-result {
+	background-color: white;
+	width: 45%;
+	height: 30px;
+	border: none;
+	box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+	border-radius: 4px;
+	padding: 0px 0px;
+	margin-bottom: 10px;
+	display: flex;
+	justify-content: center;
+}
