@@ -46,9 +46,14 @@ class CurrencyController extends CI_Controller
 		$to_Currency = urlencode($to_currency);
 		$query = "{$from_Currency}_{$to_Currency}";
 
-		$json = file_get_contents("https://free.currconv.com/api/v7/convert?q={$query}&compact=ultra&date={$date}&apiKey={$apikey}");
+		try {
+			$json = file_get_contents("https://free.currconv.com/api/v7/convert?q={$query}&compact=ultra&date={$date}&apiKey={$apikey}");
+		} catch (Exception $exception) {
+			return "Enter correct values";
+		}
 
 		$obj = json_decode($json, true);
+
 
 		foreach ($obj as $value) {
 			foreach ($value as $key) {
@@ -57,5 +62,3 @@ class CurrencyController extends CI_Controller
 		}
 	}
 }
-
-
