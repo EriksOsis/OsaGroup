@@ -91,11 +91,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 		<div class="calc-result">
 			<?php $conversion = new CurrencyController();
 			if (isset($_POST["convert"])) {
-				$amount = $_POST["amount"];
-				$from = $_POST["from_currency"];
-				$to = $_POST["to_currency"];
-
-				echo $conversion->convertCurrency($amount, $from, $to);
+				echo $conversion->convertCurrency($_POST["amount"], $_POST["from_currency"], $_POST["to_currency"]);
 			}
 			?>
 
@@ -127,11 +123,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 		<div class="date-result">
 			<?php $showDate = new CurrencyController();
 			if (isset($_POST["date-submit"])) {
-				$base = $_POST["list-base"];
-				$quote = $_POST["list-quote"];
-				$date = $_POST["curr-list-date"];
-
-				echo $showDate->show($base, $quote, $date) . " {$base}{$quote}";
+				echo $showDate->show($_POST["list-base"], $_POST["list-quote"], $_POST["curr-list-date"]) . " {$_POST["list-base"]}{$_POST["list-quote"]}";
 			}
 			?>
 

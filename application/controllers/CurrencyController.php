@@ -8,6 +8,7 @@ class CurrencyController extends CI_Controller
 		$this->load->view('calculator');
 	}
 
+	// takes 3 parameters and converts one currency to another
 	public function convertCurrency($amount, $from_currency, $to_currency): string
 	{
 		$total = 0;
@@ -30,6 +31,7 @@ class CurrencyController extends CI_Controller
 		return number_format($total, 2, '.', '');
 	}
 
+	//takes 3 parameters and returns currency pairs value on a certain date in the past
 	public function show($from_currency, $to_currency, $date): float|string
 	{
 		if ($from_currency && $to_currency && $date) {
@@ -51,17 +53,4 @@ class CurrencyController extends CI_Controller
 		}
 		return "Enter values";
 	}
-
-//	public function list(): array
-//	{
-//		$apikey = '400df89c9ea465ac6491';
-//
-//		$json = file_get_contents("https://free.currconv.com/api/v7/currencies?apiKey={$apikey}");
-//		$obj = json_decode($json, true);
-//
-//		foreach ($obj as $symbols) {
-//				return array_keys($symbols);
-//		}
-//		return [];
-//	}
 }
