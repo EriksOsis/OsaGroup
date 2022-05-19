@@ -3,8 +3,6 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class CurrencyController extends CI_Controller
 {
-	public string $string = "string";
-
 	public function index()
 	{
 		$this->load->view('calculator');
@@ -13,12 +11,10 @@ class CurrencyController extends CI_Controller
 	// takes 3 parameters and converts one currency to another
 	public function convertCurrency($amount, $from_currency, $to_currency): string
 	{
-		$total = 0;
-		if (!$amount && !$from_currency && !$to_currency) {
-			if (gettype($this->string) !== gettype($from_currency) || gettype($this->string) !== gettype($to_currency)) {
-				return number_format($total, 2, '.', '');
-			}
+		if (!is_numeric($amount) || !ctype_alpha($from_currency) || !ctype_alpha($to_currency)) {
+			return "Enter correct values";
 		}
+
 		$apikey = '400df89c9ea465ac6491';
 
 		$from_Currency = urlencode(strtoupper($from_currency));
@@ -31,20 +27,17 @@ class CurrencyController extends CI_Controller
 
 		$val = floatval($obj["$query"]);
 
-		$total += $val * $amount;
+		$total = $val * $amount;
 
 		return number_format($total, 2, '.', '');
 
 	}
 
 	//takes 3 parameters and returns currency pairs value on a certain date in the past
-	public function show($from_currency, $to_currency, $date): float|string
+	public function show($from_currency, $to_currency, $date)
 	{
-
-		if (!$from_currency && !$to_currency && !$date) {
-			if (gettype($this->string) !== gettype($from_currency) && gettype($this->string) !== gettype($to_currency)) {
-				return "Enter values";
-			}
+		if (!ctype_alpha($from_currency) || !ctype_alpha($to_currency)) {
+			return "Enter correct values";
 		}
 
 		$apikey = '400df89c9ea465ac6491';
@@ -62,7 +55,6 @@ class CurrencyController extends CI_Controller
 				return number_format($key, 2, '.', '');
 			}
 		}
-		return 0.00;
 	}
 }
 
