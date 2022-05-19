@@ -160,7 +160,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
 </body>
 </html>
 
-<script>let today = new Date();
+<script>
+	let today = new Date();
 	let dd = today.getDate();
 	let mm = today.getMonth() + 1;
 	const yyyy = today.getFullYear();
@@ -174,4 +175,5 @@ defined('BASEPATH') or exit('No direct script access allowed');
 	}
 
 	today = yyyy + '-' + mm + '-' + dd;
-	document.getElementById("curr-date").setAttribute("max", today);</script>
+	document.getElementById("curr-date").setAttribute("max", today);
+</script>
